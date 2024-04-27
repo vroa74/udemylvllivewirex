@@ -11,19 +11,26 @@ use Livewire\WithPagination;
 class CategoryComponent extends Component
 {
     use WithPagination;
+    public $search='';
     public $totalRegistros =0;
 
     public $name;
 
     public function render()
     {
+        if($this->search !=''){
+            $this->resetPage();
+        }
 
         $this->totalRegistros = Category::count();
 
-        $categories = Category::orderBy('id','desc')->paginate(5);
+        $categories = Category::where('name','like','%'.$this->search.'%')->orderBy('id','desc')->paginate(5);
+
+
         //$categories = collect();
 
         return view('livewire.category.category-component',['categories'=>$categories]);
+
     }
     public function mount()
     {

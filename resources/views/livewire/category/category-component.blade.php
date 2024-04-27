@@ -4,18 +4,17 @@
             <a href="#"  class="btn btn-primary" data-toggle="modal" data-target="#modalCategory">
                 new Category
             </a>
-
         </x-slot:cardTools>
         <br/>
 
 
         <x-table>
 
-            <X-slot:thead>
+            <x-slot:thead>
                 <th>ID</th>
                 <th>nombre</th>
                 <th class="text-center" width="20%">acciones</th>
-            </X-slot:thead>
+            </x-slot:thead>
             @forelse( $categories as $category )
                 <tr>
                     <td>{{$category->id}}</td>
@@ -30,14 +29,14 @@
                     <tr>
                         <td colspan="3" class="text-center">No hay registros</td>
                     </tr>
-                @endempty
-            @endelsefor
 
-            <X-slot:tfoot>
+            @endforelse
+
+            <x-slot:tfoot>
                 <th>ID</th>
                 <th>Nombres</th>
                 <th class="text-center">Acciones</th>
-            </X-slot:tfoot>
+            </x-slot:tfoot>
 
         </x-table>
         <x-slot:cardFooter>

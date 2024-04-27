@@ -11,11 +11,11 @@
         </select>
     </div>
     <div>
-        <input type="search" class="form-control" placeholder="Buscar...">
+        <input type="search"  wire:model.live='search'  class="form-control" placeholder="Buscar...">
     </div>
 </div>
 
-<div class="table-responsive p-3">
+<div class="table-responsive p-3 table-sm">
     <table class="table table-bordered">
         <thead>
         <tr>
