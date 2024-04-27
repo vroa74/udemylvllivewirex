@@ -1,12 +1,14 @@
 <div>
-    <x-card cardTitle="Lista de Categorias" >
+    <x-card cardTitle="Lista de Categorias ({{$this->totalRegistros}})" >
         <x-slot:cardTools>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                Launch demo modal
-            </button>
+            <a href="#"  class="btn btn-primary" data-toggle="modal" data-target="#modalCategory">
+                new Category
+            </a>
 
         </x-slot:cardTools>
         <br/>
+
+
         <x-table>
             <X-slot:thead>
                 <th>ID</th>
@@ -53,19 +55,24 @@
     </x-card>
 
 
-    <!-- Button trigger modal -->
-
+<!---------------------------------------------------------------------------------------- ---------------------------------------------------------------------------------------->
     <!-- Modal -->
-<x-modal mhead="Category">
-    <x-slot:mtools>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-    </x-slot:mtools>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda beatae culpa dolorum eveniet ex inventore. Cupiditate distinctio est non perferendis, porro quasi ratione recusandae voluptate! Aut error et facilis minus!
+<x-modal modalTitle="Category" modalId="modalCategory">
+    <x-slot:modalTools>
+        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal"><i class="far fa-window-close"></i> </button>
+    </x-slot:modalTools>
+    <form wire:submit="store" >
 
-    <x-slot:mfooter>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-    </x-slot:mfooter>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Category</span>
+            </div>
+            <input wire:model="name" type="text" class="form-control" placeholder="Category">
+            @error('name') <div class="alert alert-danger w-100 mt-2">{{ $message }}</div>
+            @enderror
+        </div>
+        <button  class="btn btn-primary float-right">Guardar</button>
+    </form>
 </x-modal>
+
 </div>

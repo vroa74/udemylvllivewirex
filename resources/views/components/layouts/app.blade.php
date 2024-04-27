@@ -48,6 +48,13 @@
 <!-- REQUIRED SCRIPTS -->
 @include('components.partials.scripts')
 <!-- PLUGINS -->
+<script>
+    document.addEventListener('livewire:init', () => {
+        Livewire.on('close-modal', (idmodal) => {
+            $('#'+idmodal).modal('hide')
+        });
+    });
 
+</script>
 </body>
 </html>
