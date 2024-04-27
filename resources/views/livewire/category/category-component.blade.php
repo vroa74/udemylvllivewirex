@@ -10,40 +10,28 @@
 
 
         <x-table>
+
             <X-slot:thead>
                 <th>ID</th>
                 <th>nombre</th>
                 <th class="text-center" width="20%">acciones</th>
             </X-slot:thead>
-            <tr>
-                <td>1</td> <td>Juan</td>
-                <td class="text-center">
-                    <button class="btn btn-info btn-sm"><i class="far fa-eye"></i></button>
-                    <button class="btn btn-warning btn-sm"><i class="far fa-edit"></i></button>
-                    <button class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
-                 </td>
-            </tr>
-            <tr><td>2</td><td>Luisa</td>
-                <td class="text-center">
-                    <button class="btn btn-info btn-sm"><i class="far fa-eye"></i></button>
-                    <button class="btn btn-warning btn-sm"><i class="far fa-edit"></i></button>
-                    <button class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
-                </td>
-            </tr>
-            <tr><td>3</td><td>Miguel</td>
-                <td class="text-center">
-                    <button class="btn btn-info btn-sm"><i class="far fa-eye"></i></button>
-                    <button class="btn btn-warning btn-sm"><i class="far fa-edit"></i></button>
-                    <button class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
-                </td>
-            </tr>
-            <tr><td>4</td><td>Carlos</td>
-                <td class="text-center">
-                    <button class="btn btn-info btn-sm"><i class="far fa-eye"></i></button>
-                    <button class="btn btn-warning btn-sm"><i class="far fa-edit"></i></button>
-                    <button class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
-                </td>
-            </tr>
+            @forelse( $categories as $category )
+                <tr>
+                    <td>{{$category->id}}</td>
+                    <td>{{$category->name}}</td>
+                    <td class="text-center">
+                        <button class="btn btn-info btn-sm"><i class="far fa-eye"></i></button>
+                        <button class="btn btn-warning btn-sm"><i class="far fa-edit"></i></button>
+                        <button class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
+                    </td>
+                </tr>
+                @empty
+                    <tr>
+                        <td colspan="3" class="text-center">No hay registros</td>
+                    </tr>
+                @endempty
+            @endelsefor
 
             <X-slot:tfoot>
                 <th>ID</th>

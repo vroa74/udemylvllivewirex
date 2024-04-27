@@ -17,7 +17,10 @@ class CategoryComponent extends Component
     {
         $this->totalRegistros = Category::count();
 
-        return view('livewire.category.category-component');
+        $categories = Category::all()->reverse();
+        //$categories = collect();
+
+        return view('livewire.category.category-component',['categories'=>$categories]);
     }
     public function mount()
     {
