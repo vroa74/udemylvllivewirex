@@ -13,9 +13,9 @@ class CategoryComponent extends Component
     use WithPagination;
     public $search='';
     public $totalRegistros =0;
-    public $cant = 5;
-
+    public $cant;
     public $name;
+    public $Id;
 
     public function render()
     {
@@ -53,4 +53,18 @@ class CategoryComponent extends Component
         $this->dispatch('msg','Categoria creada con exito');
         $this->reset('name');
     }
+    public function edit(Category $category)
+    {
+        dump($category);
+//        $this->Id = $category->id;
+//        $this->name = $category->name;
+//        $this->dispatch('open-modal','modalCategory');
+//        $category = Category::find($id);
+//        $this->Id = $category->id;
+//        $this->name = $category->name;
+//        $this->dispatch('open-modal','modalCategory');
+    }
+
+
+
 }

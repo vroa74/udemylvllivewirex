@@ -20,9 +20,9 @@
                     <td>{{$category->id}}</td>
                     <td>{{$category->name}}</td>
                     <td class="text-center">
-                        <button class="btn btn-info btn-sm"><i class="far fa-eye"></i></button>
-                        <button class="btn btn-warning btn-sm"><i class="far fa-edit"></i></button>
-                        <button class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
+                        <a href="#" class="btn btn-info btn-sm"><i class="far fa-eye"></i></a>
+                        <a href="#" wire:click="edit({{$category->id}})" class="btn btn-warning btn-sm"><i class="far fa-edit"></i></a>
+                        <a href="#"  class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
                     </td>
                 </tr>
                 @empty
@@ -52,8 +52,7 @@
     <x-slot:modalTools>
         <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal"><i class="far fa-window-close"></i> </button>
     </x-slot:modalTools>
-    <form wire:submit="store" >
-
+    <form wire:submit="{{ $Id==0 ? 'store':'update'}}" >
         <div class="input-group mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text">Category</span>
@@ -62,7 +61,7 @@
             @error('name') <div class="alert alert-danger w-100 mt-2">{{ $message }}</div>
             @enderror
         </div>
-        <button  class="btn btn-primary float-right">Guardar</button>
+        <button  class="btn btn-primary float-right">{{ $Id==0 ? 'Guardar':'Editar'}}</button>
     </form>
 </x-modal>
 
