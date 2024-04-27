@@ -2,7 +2,9 @@
 <div class="mb-3 d-flex justify-content-between">
     <div>
         <span>Mostrar</span>
-        <select class="form-control">
+        <select wire:model.live='cant'  class="form-control">
+            <option value="1">1</option>
+            <option value="5">5</option>
             <option value="10">10</option>
             <option value="20">20</option>
             <option value="50">50</option>

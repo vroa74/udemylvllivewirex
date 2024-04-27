@@ -13,6 +13,7 @@ class CategoryComponent extends Component
     use WithPagination;
     public $search='';
     public $totalRegistros =0;
+    public $cant = 5;
 
     public $name;
 
@@ -21,16 +22,11 @@ class CategoryComponent extends Component
         if($this->search !=''){
             $this->resetPage();
         }
-
         $this->totalRegistros = Category::count();
-
-        $categories = Category::where('name','like','%'.$this->search.'%')->orderBy('id','desc')->paginate(5);
-
+        $categories = Category::where('name','like','%'.$this->search.'%')->orderBy('id','desc')->paginate($this->cant);
 
         //$categories = collect();
-
         return view('livewire.category.category-component',['categories'=>$categories]);
-
     }
     public function mount()
     {
