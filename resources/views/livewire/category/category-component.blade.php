@@ -20,7 +20,7 @@
                     <td>{{$category->id}}</td>
                     <td>{{$category->name}}</td>
                     <td class="text-center">
-                        <a href="#" class="btn btn-info btn-sm"><i class="far fa-eye"></i></a>
+                        <a href="{{route('Categorias.show',$category)}}" class="btn btn-info btn-sm"><i class="far fa-eye"></i></a>
                         <a href="#" wire:click="edit({{$category->id}})" class="btn btn-warning btn-sm"><i class="far fa-edit"></i></a>
                         <a href="#"  class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
                     </td>
