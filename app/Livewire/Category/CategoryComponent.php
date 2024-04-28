@@ -55,14 +55,14 @@ class CategoryComponent extends Component
     }
     public function edit(Category $category)
     {
-        dump($category);
-//        $this->Id = $category->id;
-//        $this->name = $category->name;
+        //dump($category);
+        $this->Id = $category->id;
+        $this->name = $category->name;
 //        $this->dispatch('open-modal','modalCategory');
 //        $category = Category::find($id);
 //        $this->Id = $category->id;
 //        $this->name = $category->name;
-//        $this->dispatch('open-modal','modalCategory');
+        $this->dispatch('open-modal','modalCategory');
     }
 
 
