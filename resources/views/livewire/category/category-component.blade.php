@@ -1,7 +1,7 @@
 <div>
     <x-card cardTitle="Lista de Categorias ({{$this->totalRegistros}})" >
         <x-slot:cardTools>
-            <a href="#"  class="btn btn-primary" data-toggle="modal" data-target="#modalCategory">
+            <a href="#"  class="btn btn-primary" wire:click="create">
                 new Category
             </a>
         </x-slot:cardTools>

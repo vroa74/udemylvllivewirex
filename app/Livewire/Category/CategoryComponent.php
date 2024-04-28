@@ -28,10 +28,16 @@ class CategoryComponent extends Component
         //$categories = collect();
         return view('livewire.category.category-component',['categories'=>$categories]);
     }
-    public function mount()
-    {
+    public function mount()    {
 
     }
+
+    public function create()  {
+        $this->reset('name');
+        $this->resetErrorBag();
+        $this->dispatch('open-modal','modalCategory');
+    }
+
     public function store()    {
         //dump('crear categoria');
         $rules = [
