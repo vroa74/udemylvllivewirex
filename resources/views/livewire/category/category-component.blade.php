@@ -52,7 +52,7 @@
     <x-slot:modalTools>
         <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal"><i class="far fa-window-close"></i> </button>
     </x-slot:modalTools>
-    <form wire:submit="{{ $Id==0 ? 'store':'update'}}" >
+    <form wire:submit={{ $Id==0 ? "store" : "update($Id)"}} >
         <div class="input-group mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text">Category</span>

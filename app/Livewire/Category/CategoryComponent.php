@@ -55,7 +55,7 @@ class CategoryComponent extends Component
     }
     public function edit(Category $category)
     {
-        //dump($category);
+
         $this->Id = $category->id;
         $this->name = $category->name;
 //        $this->dispatch('open-modal','modalCategory');
@@ -63,6 +63,29 @@ class CategoryComponent extends Component
 //        $this->Id = $category->id;
 //        $this->name = $category->name;
         $this->dispatch('open-modal','modalCategory');
+    }
+
+    public function update(Category $category)
+    {
+        //dump($category);
+        $rules = [
+            'name' => 'required|min:5|max:255|unique:categories,name,'.$this->Id
+        ];
+        $messages = [
+            'name.required' => 'El nombre de la categoria es requerido',
+            'name.min' => 'El nombre de la categoria debe tener al menos 5 caracteres',
+            'name.max' => 'El nombre de la categoria debe tener maximo 255 caracteres',
+            'name.unique' => 'El nombre de la categoria ya existe'
+        ];
+        $this->validate($rules,$messages);
+
+        $category = Category::find($this->Id);
+        $category->name = $this->name;
+        $category->save();
+
+        $this->dispatch('close-modal','modalCategory');
+        $this->dispatch('msg','Categoria actualizada con exito');
+        $this->reset('name');
     }
 
 
